@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Raimundo Barreto",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 23.9, "left": 100.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -3.6, "left": 32.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 62.4,
+      "left": -0.55,
+      "rotate": 90,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -263.8,
+      "left": 349.8,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 44.4,
+      "left": -82.6,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 167.15,
+      "left": -48,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "r1:1", "led1:C", "black", [ "h0" ] ],
+    [ "esp:GND.2", "r1:2", "black", [ "h0" ] ],
+    [ "led1:A", "esp:D32", "green", [ "v0" ] ],
+    [ "esp:D23", "keypad1:R1", "green", [ "h0" ] ],
+    [ "esp:D22", "keypad1:R2", "green", [ "h0" ] ],
+    [ "esp:D21", "keypad1:R3", "green", [ "h0" ] ],
+    [ "esp:D19", "keypad1:R4", "green", [ "h0" ] ],
+    [ "esp:D18", "keypad1:C1", "green", [ "h0" ] ],
+    [ "esp:D5", "keypad1:C2", "green", [ "h0" ] ],
+    [ "esp:D4", "keypad1:C3", "green", [ "h0" ] ],
+    [ "esp:D2", "keypad1:C4", "green", [ "h0" ] ],
+    [ "led2:C", "r2:1", "black", [ "v0" ] ],
+    [ "r2:2", "esp:GND.2", "black", [ "v0" ] ],
+    [ "led2:A", "esp:D33", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
